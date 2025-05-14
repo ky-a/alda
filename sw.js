@@ -1,5 +1,6 @@
 var GHPATH = '/alda';
 var APP_PREFIX = 'alda_';
+var NO_CACHE = true;
 var VERSION = 'v0.0';
 var URLS = [    
   `${GHPATH}/`,
@@ -11,6 +12,8 @@ var URLS = [
 
 var CACHE_NAME = APP_PREFIX + VERSION
 self.addEventListener('fetch', function (e) {
+  if (NO_CACHE)
+    return;
   console.log('Fetch request : ' + e.request.url);
   e.respondWith(
     caches.match(e.request).then(function (request) {
@@ -26,6 +29,8 @@ self.addEventListener('fetch', function (e) {
 })
 
 self.addEventListener('install', function (e) {
+  if (NO_CACHE)
+    return;
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       console.log('Installing cache : ' + CACHE_NAME);
