@@ -1,0 +1,17 @@
+{
+  "name": "Alda",
+  "short_name": "alda",
+  "description": "-",
+  "scope": "/alda/",
+  "start_url": "/alda/",
+  "background_color": "#00ff00",
+  "theme_color": "#00ff00",
+  "display": "standalone", 
+  "icons": [
+      {
+        "src": "/alda/img/bg.png",
+        "type": "image/png",
+        "sizes": "600x600"
+      }
+  ]
+}
